@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import MessageBox from "./components/messageBox";
-import StartButton from "./components/startButton";
+import MessageBox from "./components/messageBox/messageBox";
+import StartButton from "./components/startButton/startButton";
 
 class App extends Component {
   state = {
@@ -37,9 +37,13 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <h2>Seconds counter game</h2>
-          <MessageBox message={this.state.counter} />
-          <StartButton onCountdownText={this.handleCountdownText} />
+          <div className="container">
+            <h2 className="row justify-content-md-center">
+              Seconds counter game
+            </h2>
+            <MessageBox message={this.state.counter} />
+            <StartButton onCountdownText={this.handleCountdownText} />
+          </div>
         </header>
       </div>
     );
