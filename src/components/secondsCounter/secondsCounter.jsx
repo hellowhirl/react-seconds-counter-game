@@ -10,31 +10,21 @@ class SecondsCounter extends Component {
   //   };
 
   clockTest = () => {
-    // let time = [...this.state.time];
-    // const timeA = Date.now();
-    // let timeB = "";
-    // setTimeout(() => {
-    //   timeB = Date.now();
-    //   time = timeB - timeA;
-    //   this.setState({ time });
-    //   console.log(time / 1000);
-    // }, 1000);
+    this.setState({ startTime: new Date().getTime() });
     this.intervalID = setInterval(() => this.tick(), 1000);
   };
 
   constructor(props) {
     super(props);
-    this.state = { time: 0 };
+    this.state = { time: 0, startTime: 0, updatedTime: 0 };
   }
 
-  componentDidMount() {}
-
-  componentWillUnmount() {
-    clearInterval(this.intervalID);
-  }
   tick = () => {
+    let updatedTime = new Date().getTime();
+    let difference = updatedTime - this.state.startTime;
+
     this.setState({
-      time: Math.floor((this.state.time - (Date.now() % (1000 * 60))) / 1000),
+      time: Math.floor((difference % (1000 * 60)) / 1000),
     });
   };
 
