@@ -1,37 +1,24 @@
 import React, { Component } from "react";
 import MessageBox from "./components/messageBox/messageBox";
 import StartButton from "./components/startButton/startButton";
+import SecondsCounter from "./components/secondsCounter/secondsCounter";
 
 class App extends Component {
   state = {
-    message: ["hello"],
-    counter: 0,
+    counter: ["", "Ready?", "3", "2", "1", "Go!"],
   };
 
   handleCountdownText = () => {
-    // const counterIntro = ["Ready?", "3", "2", "1", "START!"];
     let counter = this.state.counter;
 
-    console.log(counter);
-    console.log(this.state.counter);
-
-    if (counter < 5) {
+    if (counter.length > 1) {
       setTimeout(() => {
-        console.log("yes");
-        counter++;
+        counter.shift();
         this.setState({ counter });
-        console.log(counter);
-        console.log(this.state.counter);
         this.handleCountdownText();
       }, 1000);
     } else return;
-
-    console.log(this.state);
   };
-
-  componentDidMount() {
-    // this.handleCountdownText();
-  }
 
   render() {
     return (
@@ -41,8 +28,9 @@ class App extends Component {
             <h2 className="row justify-content-md-center">
               Seconds counter game
             </h2>
-            <MessageBox message={this.state.counter} />
+            <MessageBox message={this.state.counter[0]} />
             <StartButton onCountdownText={this.handleCountdownText} />
+            <SecondsCounter />
           </div>
         </header>
       </div>
