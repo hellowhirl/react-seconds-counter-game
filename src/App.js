@@ -10,7 +10,7 @@ class App extends Component {
   };
 
   handleCountdownText = () => {
-    let counter = this.state.counter;
+    const counter = [...this.state.counter];
 
     if (counter.length > 1) {
       setTimeout(() => {
@@ -19,14 +19,11 @@ class App extends Component {
         this.handleCountdownText();
       }, 1000);
     } else return;
-
     console.log(this.state);
+  };
 
-    let timerStarted = { ...this.state.timerStarted };
-    timerStarted = true;
-    this.setState({ timerStarted });
-
-    console.log(this.state);
+  showTimer = () => {
+    this.setState({ timerStarted: true });
   };
 
   render() {
@@ -38,7 +35,10 @@ class App extends Component {
               Seconds counter game
             </h2>
             <MessageBox message={this.state.counter[0]} />
-            <StartButton onCountdownText={this.handleCountdownText} />
+            <StartButton
+              onCountdownText={this.handleCountdownText}
+              other={this.showTimer}
+            />
             {this.state.timerStarted && <SecondsCounter />}
           </div>
         </header>
