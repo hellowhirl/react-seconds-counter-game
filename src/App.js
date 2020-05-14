@@ -6,6 +6,7 @@ import SecondsCounter from "./components/secondsCounter/secondsCounter";
 class App extends Component {
   state = {
     counter: ["", "Ready?", "3", "2", "1", "Go!"],
+    timerStarted: false,
   };
 
   handleCountdownText = () => {
@@ -18,6 +19,14 @@ class App extends Component {
         this.handleCountdownText();
       }, 1000);
     } else return;
+
+    console.log(this.state);
+
+    let timerStarted = { ...this.state.timerStarted };
+    timerStarted = true;
+    this.setState({ timerStarted });
+
+    console.log(this.state);
   };
 
   render() {
@@ -30,7 +39,7 @@ class App extends Component {
             </h2>
             <MessageBox message={this.state.counter[0]} />
             <StartButton onCountdownText={this.handleCountdownText} />
-            <SecondsCounter />
+            {this.state.timerStarted && <SecondsCounter />}
           </div>
         </header>
       </div>
