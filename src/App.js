@@ -6,6 +6,7 @@ import SecondsCounter from "./components/secondsCounter/secondsCounter";
 class App extends Component {
   state = {
     counter: ["", "Ready?", "3", "2", "1", "Go!"],
+    countdownStarted: false,
     timerStarted: false,
   };
 
@@ -18,12 +19,13 @@ class App extends Component {
         this.setState({ counter });
         this.handleCountdownText();
       }, 1000);
-    } else return;
-    console.log(this.state);
+    } else {
+      this.setState({ timerStarted: true });
+    }
   };
 
   showTimer = () => {
-    this.setState({ timerStarted: true });
+    this.setState({ countdownStarted: true });
   };
 
   render() {
@@ -39,7 +41,9 @@ class App extends Component {
               onCountdownText={this.handleCountdownText}
               other={this.showTimer}
             />
-            {this.state.timerStarted && <SecondsCounter />}
+            {this.state.countdownStarted && (
+              <SecondsCounter timerStarted={this.state.timerStarted} />
+            )}
           </div>
         </header>
       </div>

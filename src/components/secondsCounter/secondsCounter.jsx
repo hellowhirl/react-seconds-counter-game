@@ -29,6 +29,10 @@ class SecondsCounter extends Component {
   };
 
   render() {
+    setTimeout(() => {
+      console.log(this.props);
+    }, 1000);
+
     return (
       <React.Fragment>
         <div className="row justify-content-md-center">
