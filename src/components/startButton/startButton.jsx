@@ -1,13 +1,13 @@
 import React from "react";
 
-const StartButton = ({ onCountdownText, other }) => {
+const StartButton = ({ onCountdownText }) => {
   return (
     <div className="row justify-content-md-center">
       <button
         className="btn btn-primary"
         onClick={() => {
           onCountdownText();
-          other();
+          // other();
         }}
       >
         START

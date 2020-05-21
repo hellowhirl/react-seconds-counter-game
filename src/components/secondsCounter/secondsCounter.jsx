@@ -9,7 +9,7 @@ class SecondsCounter extends Component {
   //     this.setState({ time });
   //   };
 
-  clockTest = () => {
+  clockStart = () => {
     this.setState({ startTime: new Date().getTime() });
     this.intervalID = setInterval(() => this.tick(), 1000);
   };
@@ -29,16 +29,12 @@ class SecondsCounter extends Component {
   };
 
   render() {
-    setTimeout(() => {
-      console.log(this.props);
-    }, 1000);
-
     return (
       <React.Fragment>
         <div className="row justify-content-md-center">
           <button
             className="btn btn-primary mt-3 mb-3"
-            onClick={this.clockTest}
+            onClick={this.clockStart}
           >
             START TIMER
           </button>
