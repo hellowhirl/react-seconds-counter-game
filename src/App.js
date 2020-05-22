@@ -14,9 +14,11 @@ class App extends Component {
     updatedTime: 0,
   };
 
-  // startButtonClicked = () => {
-  //   this.setState({ gameStarted: true });
-  // };
+  startButtonClicked = () => {
+    this.setState({ gameStarted: true });
+
+    this.handleCountdownText();
+  };
 
   handleCountdownText = () => {
     const counter = [...this.state.counter];
@@ -60,16 +62,17 @@ class App extends Component {
           </h6>
           <MessageBox message={this.state.counter[0]} />
           <StartButton
-            onCountdownText={this.handleCountdownText}
+            onStartButtonClick={this.startButtonClicked}
             gameStarted={this.state.gameStarted}
           />
 
           <div className="row justify-content-md-center">{this.state.time}</div>
           <div className="row justify-content-md-center">
-            {this.state.secondsCountingStarted && (
+            {this.state.gameStarted && (
               <button
                 className="btn btn-primary mt-3 mb-3"
                 onClick={() => clearInterval(this.intervalID)}
+                disabled={this.state.secondsCountingStarted ? "" : "disabled"}
               >
                 STOP
               </button>
