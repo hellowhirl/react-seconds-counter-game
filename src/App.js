@@ -7,11 +7,16 @@ import StartButton from "./components/startButton/startButton";
 class App extends Component {
   state = {
     counter: ["", "Ready?", "3", "2", "1", "Go!"],
+    gameStarted: false,
     secondsCountingStarted: false,
     time: 0,
     startTime: 0,
     updatedTime: 0,
   };
+
+  // startButtonClicked = () => {
+  //   this.setState({ gameStarted: true });
+  // };
 
   handleCountdownText = () => {
     const counter = [...this.state.counter];
@@ -50,8 +55,14 @@ class App extends Component {
           <h2 className="row justify-content-md-center">
             Seconds counter game
           </h2>
+          <h6 className="row justify-content-md-center">
+            Can you count 10 seconds perfectly?
+          </h6>
           <MessageBox message={this.state.counter[0]} />
-          <StartButton onCountdownText={this.handleCountdownText} />
+          <StartButton
+            onCountdownText={this.handleCountdownText}
+            gameStarted={this.state.gameStarted}
+          />
 
           <div className="row justify-content-md-center">{this.state.time}</div>
           <div className="row justify-content-md-center">

@@ -1,6 +1,6 @@
 import React from "react";
 
-const StartButton = ({ onCountdownText }) => {
+const StartButton = ({ onCountdownText, gameStarted }) => {
   return (
     <div className="row justify-content-md-center">
       <button
@@ -9,6 +9,7 @@ const StartButton = ({ onCountdownText }) => {
           onCountdownText();
           // other();
         }}
+        // disabled={gameStarted ? "disabled" : ""}
       >
         START
       </button>
