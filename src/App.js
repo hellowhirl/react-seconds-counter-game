@@ -40,13 +40,13 @@ class App extends Component {
     let difference = updatedTime - this.state.startTime;
 
     this.setState({
-      time: Math.floor((difference % (1000 * 60)) / 1000),
+      time: (difference % (1000 * 60)) / 1000,
     });
   };
 
   clockStart = () => {
     this.setState({ startTime: new Date().getTime() });
-    this.intervalID = setInterval(() => this.tick(), 1000);
+    this.intervalID = setInterval(() => this.tick(), 10);
   };
 
   render() {
