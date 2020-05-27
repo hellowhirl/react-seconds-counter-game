@@ -50,6 +50,11 @@ class App extends Component {
     this.intervalID = setInterval(() => this.tick(), 10);
   };
 
+  clockStop = () => {
+    clearInterval(this.intervalID);
+    this.setState({ secondsCountingStarted: false });
+  };
+
   addClasses = () => {
     let base = "row justify-content-md-center gameCounter ";
     return (base += this.state.secondsCountingStarted ? "fade-out" : "");
@@ -77,14 +82,22 @@ class App extends Component {
             {this.state.gameStarted && (
               <button
                 className="btn btn-primary mt-3 mb-3"
-                onClick={() => clearInterval(this.intervalID)}
+                onClick={() => this.clockStop()}
                 disabled={this.state.secondsCountingStarted ? "" : "disabled"}
               >
                 STOP
               </button>
             )}
           </div>
-          {this.state.time > 3 && this.state.time < 5 && <h3>Testing</h3>}
+          {!this.state.secondsCountingStarted &&
+            this.state.time >= 9 &&
+            this.state.time <= 11 && <h3>Excellent!</h3>}
+          {this.state.gameStarted &&
+            !this.state.secondsCountingStarted &&
+            this.state.time < 9 && <h3>Too Quick!!</h3>}
+          {!this.state.secondsCountingStarted && this.state.time > 11 && (
+            <h3>T o o _ S l o w . . .</h3>
+          )}
         </div>
       </div>
     );
