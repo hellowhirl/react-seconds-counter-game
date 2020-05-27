@@ -90,12 +90,13 @@ class App extends Component {
             )}
           </div>
           {!this.state.secondsCountingStarted &&
-            this.state.time >= 9 &&
-            this.state.time <= 11 && <h3>Excellent!</h3>}
-          {this.state.gameStarted &&
+            this.state.time >= 9.5 &&
+            this.state.time <= 10.5 && <h3>Excellent!</h3>}
+          {this.state.counter.length === 1 &&
+            this.state.gameStarted &&
             !this.state.secondsCountingStarted &&
-            this.state.time < 9 && <h3>Too Quick!!</h3>}
-          {!this.state.secondsCountingStarted && this.state.time > 11 && (
+            this.state.time < 9.5 && <h3>Too Quick!!</h3>}
+          {!this.state.secondsCountingStarted && this.state.time > 10.5 && (
             <h3>T o o _ S l o w . . .</h3>
           )}
         </div>
