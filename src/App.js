@@ -89,16 +89,18 @@ class App extends Component {
               </button>
             )}
           </div>
-          {!this.state.secondsCountingStarted &&
-            this.state.time >= 9.5 &&
-            this.state.time <= 10.5 && <h3>Excellent!</h3>}
-          {this.state.counter.length === 1 &&
-            this.state.gameStarted &&
-            !this.state.secondsCountingStarted &&
-            this.state.time < 9.5 && <h3>Too Quick!!</h3>}
-          {!this.state.secondsCountingStarted && this.state.time > 10.5 && (
-            <h3>T o o _ S l o w . . .</h3>
-          )}
+          <div className="row justify-content-md-center">
+            {!this.state.secondsCountingStarted &&
+              this.state.time >= 9.5 &&
+              this.state.time <= 10.5 && <h3>Excellent!</h3>}
+            {this.state.counter.length === 1 &&
+              this.state.gameStarted &&
+              !this.state.secondsCountingStarted &&
+              this.state.time < 9.5 && <h3>Too Quick!!</h3>}
+            {!this.state.secondsCountingStarted && this.state.time > 10.5 && (
+              <h3>T o o _ S l o w . . .</h3>
+            )}
+          </div>
         </div>
       </div>
     );
