@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import MessageBox from "./components/messageBox/messageBox";
 import StartButton from "./components/startButton/startButton";
+import "./App.css";
 
 // component interface: inputs and events
 
@@ -49,6 +50,11 @@ class App extends Component {
     this.intervalID = setInterval(() => this.tick(), 10);
   };
 
+  addClasses = () => {
+    let base = "row justify-content-md-center gameCounter ";
+    return (base += this.state.secondsCountingStarted ? "fade-out" : "");
+  };
+
   render() {
     return (
       <div className="App">
@@ -66,7 +72,7 @@ class App extends Component {
             gameStarted={this.state.gameStarted}
           />
 
-          <div className="row justify-content-md-center">{this.state.time}</div>
+          <div className={this.addClasses()}>{this.state.time}</div>
           <div className="row justify-content-md-center">
             {this.state.gameStarted && (
               <button
@@ -78,6 +84,7 @@ class App extends Component {
               </button>
             )}
           </div>
+          {this.state.time > 3 && this.state.time < 5 && <h3>Testing</h3>}
         </div>
       </div>
     );
