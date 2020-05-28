@@ -56,7 +56,7 @@ class App extends Component {
   };
 
   addClasses = () => {
-    let base = "row justify-content-md-center gameCounter ";
+    let base = "row justify-content-center gameCounter ";
     return (base += this.state.secondsCountingStarted ? "fade-out" : "");
   };
 
@@ -65,10 +65,8 @@ class App extends Component {
       <div className="App">
         <header className="App-header"></header>
         <div className="container">
-          <h2 className="row justify-content-md-center">
-            Seconds counter game
-          </h2>
-          <h6 className="row justify-content-md-center">
+          <h2 className="row justify-content-center">Seconds counter game</h2>
+          <h6 className="row justify-content-center">
             Can you count 10 seconds perfectly?
           </h6>
           <MessageBox message={this.state.counter[0]} />
@@ -78,7 +76,7 @@ class App extends Component {
           />
 
           <div className={this.addClasses()}>{this.state.time}</div>
-          <div className="row justify-content-md-center">
+          <div className="row justify-content-center">
             {this.state.gameStarted && (
               <button
                 className="btn btn-primary mt-3 mb-3"
@@ -89,7 +87,7 @@ class App extends Component {
               </button>
             )}
           </div>
-          <div className="row justify-content-md-center">
+          <div className="row justify-content-center">
             {!this.state.secondsCountingStarted &&
               this.state.time >= 9.5 &&
               this.state.time <= 10.5 && <h3>Excellent!</h3>}

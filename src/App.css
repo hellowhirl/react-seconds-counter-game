@@ -1,3 +1,11 @@
+.App {
+  margin-top: 20px;
+}
+
+.gameMessage {
+  font-size: 20px;
+}
+
 .gameCounter {
   font-size: 30px;
   opacity: 1;
