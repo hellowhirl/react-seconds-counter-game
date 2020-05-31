@@ -3,13 +3,15 @@ import MessageBox from "./components/messageBox";
 import StartButton from "./components/startButton";
 import "./App.css";
 import ResultsDisplay from "./components/resultsDisplay";
+import ResetButton from "./components/resetButton";
 
 // component interface: inputs and events
 
 class App extends Component {
   state = {
     counter: ["", "Ready?", "3", "2", "1", "Go!"],
-    gameStarted: false,
+    gameOn: false,
+    gameOver: false,
     secondsCountingStarted: false,
     time: 0,
     startTime: 0,
@@ -17,7 +19,7 @@ class App extends Component {
   };
 
   startButtonClicked = () => {
-    this.setState({ gameStarted: true });
+    this.setState({ gameOn: true });
 
     this.handleCountdownText();
   };
@@ -53,12 +55,24 @@ class App extends Component {
 
   clockStop = () => {
     clearInterval(this.intervalID);
-    this.setState({ secondsCountingStarted: false });
+    this.setState({ secondsCountingStarted: false, gameOver: true });
   };
 
   addClasses = () => {
     let base = "row justify-content-center gameCounter ";
     return (base += this.state.secondsCountingStarted ? "fade-out" : "");
+  };
+
+  resetGame = () => {
+    this.setState({
+      counter: ["", "Ready?", "3", "2", "1", "Go!"],
+      gameOn: false,
+      gameOver: false,
+      secondsCountingStarted: false,
+      time: 0,
+      startTime: 0,
+      updatedTime: 0,
+    });
   };
 
   render() {
@@ -73,12 +87,12 @@ class App extends Component {
           <MessageBox message={this.state.counter[0]} />
           <StartButton
             onStartButtonClick={this.startButtonClicked}
-            gameStarted={this.state.gameStarted}
+            gameOn={this.state.gameOn}
           />
 
           <div className={this.addClasses()}>{this.state.time}</div>
           <div className="row justify-content-center">
-            {this.state.gameStarted && (
+            {this.state.gameOn && (
               <button
                 className="btn btn-primary mt-3 mb-3"
                 onClick={() => this.clockStop()}
@@ -92,7 +106,11 @@ class App extends Component {
             secondsCountingStarted={this.state.secondsCountingStarted}
             time={this.state.time}
             counter={this.state.counter}
-            gameStarted={this.state.gameStarted}
+            gameOn={this.state.gameOn}
+          />
+          <ResetButton
+            resetGame={this.resetGame}
+            gameOver={this.state.gameOver}
           />
         </div>
       </div>

@@ -1,11 +1,6 @@
 import React from "react";
 
-const ResultsDisplay = ({
-  secondsCountingStarted,
-  time,
-  counter,
-  gameStarted,
-}) => {
+const ResultsDisplay = ({ secondsCountingStarted, time, counter, gameOn }) => {
   return (
     <React.Fragment>
       <div className="row justify-content-center">
@@ -13,7 +8,7 @@ const ResultsDisplay = ({
           <h3>Excellent!</h3>
         )}
         {counter.length === 1 &&
-          gameStarted &&
+          gameOn &&
           !secondsCountingStarted &&
           time < 9.5 && <h3>Too Quick!!</h3>}
         {!secondsCountingStarted && time > 10.5 && (

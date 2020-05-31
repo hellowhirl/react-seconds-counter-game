@@ -1,6 +1,6 @@
 import React from "react";
 
-const StartButton = ({ onStartButtonClick, gameStarted }) => {
+const StartButton = ({ onStartButtonClick, gameOn }) => {
   return (
     <div className="row justify-content-center">
       <button
@@ -8,7 +8,7 @@ const StartButton = ({ onStartButtonClick, gameStarted }) => {
         onClick={() => {
           onStartButtonClick();
         }}
-        disabled={gameStarted ? "disabled" : ""}
+        disabled={gameOn ? "disabled" : ""}
       >
         START
       </button>
