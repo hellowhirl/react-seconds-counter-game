@@ -6,10 +6,11 @@ import ResultsDisplay from "./components/resultsDisplay";
 import ResetButton from "./components/resetButton";
 
 // component interface: inputs and events
+const countdownText = ["", "Ready", "Ready", "3", "2", "1", "Go!"];
 
 class App extends Component {
   state = {
-    counter: ["", "Ready?", "3", "2", "1", "Go!"],
+    counter: countdownText,
     gameOn: false,
     gameOver: false,
     secondsCountingStarted: false,
@@ -65,7 +66,7 @@ class App extends Component {
 
   resetGame = () => {
     this.setState({
-      counter: ["", "Ready?", "3", "2", "1", "Go!"],
+      counter: countdownText,
       gameOn: false,
       gameOver: false,
       secondsCountingStarted: false,

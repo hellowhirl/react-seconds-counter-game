@@ -20,7 +20,6 @@ class SecondsCounter extends Component {
             START TIMER
           </button>
         </div>
-        {/* <div className="row justify-content-md-center">{this.state.time}</div> */}
         <div className="row justify-content-md-center">{this.state.time}</div>
         <div className="row justify-content-md-center">
           <button
