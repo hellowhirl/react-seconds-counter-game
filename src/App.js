@@ -44,7 +44,7 @@ class App extends Component {
     let difference = updatedTime - this.state.startTime;
 
     this.setState({
-      time: (difference % (1000 * 60)) / 1000,
+      time: ((difference % (1000 * 60)) / 1000).toFixed(2),
     });
   };
 

@@ -9,25 +9,6 @@ class SecondsCounter extends Component {
   //     this.setState({ time });
   //   };
 
-  clockStart = () => {
-    this.setState({ startTime: new Date().getTime() });
-    this.intervalID = setInterval(() => this.tick(), 1000);
-  };
-
-  constructor(props) {
-    super(props);
-    this.state = { time: 0, startTime: 0, updatedTime: 0 };
-  }
-
-  tick = () => {
-    let updatedTime = new Date().getTime();
-    let difference = updatedTime - this.state.startTime;
-
-    this.setState({
-      time: Math.floor((difference % (1000 * 60)) / 1000),
-    });
-  };
-
   render() {
     return (
       <React.Fragment>
