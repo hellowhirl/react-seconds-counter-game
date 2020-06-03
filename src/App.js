@@ -4,9 +4,11 @@ import StartButton from "./components/startButton";
 import "./App.css";
 import ResultsDisplay from "./components/resultsDisplay";
 import ResetButton from "./components/resetButton";
+import readySound from "./assets/ready2count.m4a";
 
 // component interface: inputs and events
 const countdownText = ["", "Ready", "Ready", "3", "2", "1", "Go!"];
+const audio = new Audio(readySound);
 
 class App extends Component {
   state = {
@@ -23,6 +25,11 @@ class App extends Component {
     this.setState({ gameOn: true });
 
     this.handleCountdownText();
+    this.hanldePlaySound();
+  };
+
+  hanldePlaySound = () => {
+    audio.play();
   };
 
   handleCountdownText = () => {
@@ -82,7 +89,7 @@ class App extends Component {
         <header className="App-header"></header>
         <div className="container">
           <h2 className="row justify-content-center">Seconds counter game</h2>
-          <h6 className="row justify-content-center">
+          <h6 className="row instructions justify-content-center">
             Can you count 10 seconds perfectly?
           </h6>
           <MessageBox message={this.state.counter[0]} />

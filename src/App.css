@@ -2,8 +2,16 @@
   margin-top: 20px;
 }
 
+.startContainer {
+  margin-top: 30px;
+}
+
 .gameMessage {
-  font-size: 20px;
+  -webkit-text-fill-color: #da291c; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: white;
+  font-weight: bold;
+  font-size: 40px;
 }
 
 .gameCounter {

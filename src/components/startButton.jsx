@@ -2,7 +2,7 @@ import React from "react";
 
 const StartButton = ({ onStartButtonClick, gameOn }) => {
   return (
-    <div className="row justify-content-center">
+    <div className="row startContainer justify-content-center">
       <button
         className="btn btn-primary"
         onClick={() => {
