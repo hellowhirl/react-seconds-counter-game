@@ -3,19 +3,25 @@
 }
 
 .startContainer {
-  margin-top: 30px;
+  /* margin-top: 60px; */
 }
 
 .gameMessage {
-  -webkit-text-fill-color: #da291c; /* Will override color (regardless of order) */
+  height: 110px !important;
+  -webkit-text-fill-color: red; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
-  -webkit-text-stroke-color: white;
+  -webkit-text-stroke-color: black;
   font-weight: bold;
-  font-size: 40px;
+  font-size: 60px;
+  background-image: linear-gradient(red, red, red, #333, #333);
+  /* background: -webkit-linear-gradient(red, #333); */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .gameCounter {
-  font-size: 30px;
+  margin-top: 20px;
+  font-size: 40px;
   opacity: 1;
   transition: opacity ease-in-out 4s;
   -webkit-transition: opacity ease-in-out 4s;
