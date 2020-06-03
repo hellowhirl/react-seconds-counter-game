@@ -22,9 +22,9 @@ class App extends Component {
   };
 
   startButtonClicked = () => {
-    this.setState({ gameOn: true });
-
     audio.play();
+    console.log("audio plays");
+    this.setState({ gameOn: true });
     this.handleCountdownText();
   };
 
