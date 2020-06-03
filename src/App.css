@@ -14,9 +14,11 @@
   font-weight: bold;
   font-size: 60px;
   background-image: linear-gradient(red, red, red, #333, #333);
-  /* background: -webkit-linear-gradient(red, #333); */
   -webkit-background-clip: text;
+  -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+  color: red;
 }
 
 .gameCounter {
