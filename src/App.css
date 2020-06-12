@@ -8,17 +8,18 @@
 
 .gameMessage {
   height: 110px !important;
+  font-weight: bold;
+  font-size: 60px;
   -webkit-text-fill-color: red; /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-  font-weight: bold;
-  font-size: 60px;
   background-image: linear-gradient(red, red, red, #333, #333);
   -webkit-background-clip: text;
   -moz-background-clip: text;
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
-  color: red;
+  color: rgba(255, 0, 0, 1);
+  background-color: white;
 }
 
 .gameCounter {
