@@ -6,6 +6,20 @@ button {
   width: 120px;
 }
 
+@keyframes topFadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  80% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+  }
+}
+
 .gameMessage {
   /* height: 110px !important; */
   font-weight: bold;
@@ -27,14 +41,20 @@ button {
 .gameCounter {
   margin-top: 20px;
   font-size: 40px;
+  opacity: 0;
+  transition: opacity ease-in 0.5s;
+  -webkit-transition: opacity ease-in 0.5s;
+  -moz-transition: opacity ease-in 0.5s;
+  -o-transition: opacity ease-in 0.5s;
+  -ms-transition: opacity ease-in 0.5s;
+}
+
+.unhidden {
   opacity: 1;
-  transition: opacity ease-in-out 4s;
-  -webkit-transition: opacity ease-in-out 4s;
-  -moz-transition: opacity ease-in-out 4s;
-  -o-transition: opacity ease-in-out 4s;
-  -ms-transition: opacity ease-in-out 4s;
 }
 
 .fade-out {
+  animation-name: topFadeOut;
+  animation-duration: 3.5s;
   opacity: 0;
 }

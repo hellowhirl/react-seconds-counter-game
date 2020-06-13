@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import MessageBox from "./components/messageBox";
 import StartButton from "./components/startButton";
 import "./App.css";
+import GameBoard from "./components/gameBoard";
 import ResultsDisplay from "./components/resultsDisplay";
-import ResetButton from "./components/resetButton";
 import readySound from "./assets/ready2count.m4a";
 
 // component interface: inputs and events
@@ -61,9 +61,13 @@ class App extends Component {
     this.setState({ secondsCountingStarted: false, gameOver: true });
   };
 
-  addClasses = () => {
+  addTimerClasses = () => {
     let base = "row justify-content-center gameCounter ";
-    return (base += this.state.secondsCountingStarted ? "fade-out" : "");
+    if (!this.state.gameOn && !this.state.secondsCountingStarted) return base;
+    if (this.state.gameOn && !this.state.secondsCountingStarted)
+      return base + "unhidden";
+    if (this.state.secondsCountingStarted && this.state.gameOn)
+      return base + "fade-out";
   };
 
   resetGame = () => {
@@ -77,6 +81,10 @@ class App extends Component {
       updatedTime: 0,
     });
   };
+
+  componentDidMount() {
+    document.title = "Seconds Counter Game";
+  }
 
   render() {
     return (
@@ -92,26 +100,18 @@ class App extends Component {
             onStartButtonClick={this.startButtonClicked}
             gameOn={this.state.gameOn}
           />
-
-          <div className={this.addClasses()}>{this.state.time}</div>
-          <div className="row justify-content-center">
-            {this.state.gameOn && (
-              <button
-                className="btn btn-primary mt-3 mb-3"
-                onClick={() => this.clockStop()}
-                disabled={this.state.secondsCountingStarted ? "" : "disabled"}
-              >
-                STOP
-              </button>
-            )}
-          </div>
+          <GameBoard
+            time={this.state.time}
+            gameOn={this.state.gameOn}
+            secondsCountingStarted={this.state.secondsCountingStarted}
+            clockStop={this.clockStop}
+            addTimerClasses={this.addTimerClasses}
+          />
           <ResultsDisplay
             secondsCountingStarted={this.state.secondsCountingStarted}
             time={this.state.time}
             counter={this.state.counter}
             gameOn={this.state.gameOn}
-          />
-          <ResetButton
             resetGame={this.resetGame}
             gameOver={this.state.gameOver}
           />
