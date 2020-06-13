@@ -56,5 +56,4 @@ button {
 .fade-out {
   animation-name: topFadeOut;
   animation-duration: 3.5s;
-  opacity: 0;
 }
