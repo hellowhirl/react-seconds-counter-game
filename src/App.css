@@ -2,12 +2,12 @@
   margin-top: 20px;
 }
 
-.startContainer {
-  margin-top: 80px;
+button {
+  width: 120px;
 }
 
 .gameMessage {
-  height: 110px !important;
+  /* height: 110px !important; */
   font-weight: bold;
   font-size: 60px;
 
