@@ -8,6 +8,7 @@ import readySound from "./assets/ready2count.m4a";
 
 // component interface: inputs and events
 const countdownText = ["", "Ready", "Ready", "3", "2", "1", "Go!"];
+const instructionText = [];
 const audio = new Audio(readySound);
 
 class App extends Component {
@@ -91,10 +92,25 @@ class App extends Component {
       <div className="App">
         <header className="App-header"></header>
         <div className="container">
-          <h2 className="row justify-content-center">Seconds counter game</h2>
-          <h6 className="row instructions justify-content-center">
-            Can you count 10 seconds perfectly?
-          </h6>
+          <h1 className="row justify-content-center">10 Seconds</h1>
+          <h4 className="row instructions justify-content-center">the game</h4>
+          <p className="row instructions justify-content-center">
+            press
+            <span style={{ display: "contents", fontWeight: "bold" }}>
+              {" "}
+              Start
+            </span>
+            , then press{" "}
+            <span style={{ display: "contents", fontWeight: "bold" }}>
+              {" "}
+              Stop{" "}
+            </span>{" "}
+            after{" "}
+            <span style={{ display: "contents", fontWeight: "bold" }}>
+              {" "}
+              10 seconds{" "}
+            </span>
+          </p>
           <MessageBox message={this.state.counter[0]} />
           <StartButton
             onStartButtonClick={this.startButtonClicked}
