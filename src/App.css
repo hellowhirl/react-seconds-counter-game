@@ -1,5 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
+@import url("https://hellowhirl.github.io/react-seconds-counter-game/static/media/ready2count.05013ceb.m4a");
 
 .App {
   margin-top: 20px;
@@ -65,15 +66,15 @@ button {
 
 .messageSuccess {
   font-weight: bold;
-  font-size: 40px;
+  font-size: 52px;
 
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-  background: linear-gradient(#333, #333, yellow, yellow, yellow);
-  background: -webkit-linear-gradient(#333, #333, yellow, yellow, yellow);
+  background: linear-gradient(#333, yellow, yellow, yellow);
+  background: -webkit-linear-gradient(#333, yellow, yellow, yellow);
 
   -webkit-background-clip: text;
   -moz-background-clip: text;
@@ -82,15 +83,15 @@ button {
 
 .messageFailure {
   font-weight: bold;
-  font-size: 40px;
+  font-size: 52px;
 
   -webkit-text-fill-color: transparent;
   -moz-text-fill-color: transparent;
 
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-  background: linear-gradient(#333, #333, purple, purple, purple);
-  background: -webkit-linear-gradient(#333, #333, purple, purple, purple);
+  background: linear-gradient(#333, #333, #651fff, #651fff, #651fff);
+  background: -webkit-linear-gradient(#333, #333, #651fff, #651fff, #651fff);
 
   -webkit-background-clip: text;
   -moz-background-clip: text;

@@ -1,13 +1,6 @@
 import React from "react";
 
-const ResultsDisplay = ({
-  secondsCountingStarted,
-  time,
-  counter,
-  gameOn,
-  gameOver,
-  resetGame,
-}) => {
+const ResultsDisplay = ({ secondsCountingStarted, time, counter, gameOn }) => {
   return (
     <React.Fragment>
       <div
@@ -24,13 +17,6 @@ const ResultsDisplay = ({
         {!secondsCountingStarted && time > 10.5 && (
           <div className="messageFailure">Too Slow</div>
         )}
-      </div>
-      <div className="row justify-content-center">
-        {gameOver ? (
-          <button className="btn btn-primary" onClick={() => resetGame()}>
-            RESET
-          </button>
-        ) : null}
       </div>
     </React.Fragment>
   );
