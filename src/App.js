@@ -11,6 +11,58 @@ const countdownText = ["", "Ready", "Ready", "3", "2", "1", "Go!"];
 const instructionText = [];
 const audio = new Audio(readySound);
 
+var audioFiles = [
+  "https://hellowhirl.github.io/react-seconds-counter-game/static/media/ready2count.05013ceb.m4a",
+];
+
+function preloadAudio(url) {
+  var audio = new Audio();
+  // once this file loads, it will call loadedAudio()
+  // the file will be kept by the browser as cache
+  audio.addEventListener("canplaythrough", loadedAudio, false);
+  audio.src = url;
+}
+
+var loaded = 0;
+function loadedAudio() {
+  // this will be called every time an audio file is loaded
+  // we keep track of the loaded files vs the requested files
+  loaded++;
+  if (loaded == audioFiles.length) {
+    // all have loaded
+    init();
+  }
+}
+
+// var player = document.getElementById("player");
+function play(index) {
+  audio.src = audioFiles[index];
+  audio.play();
+  audio.pause();
+}
+
+function init() {
+  // do your stuff here, audio has been loaded
+  // for example, play all files one after the other
+  var i = 0;
+  // once the audio ends, play the next one
+  audio.onended = function () {
+    i++;
+    if (i >= audioFiles.length) {
+      // end
+      return;
+    }
+    play(i);
+  };
+  // play the first file
+  play(i);
+}
+
+// we start preloading all the audio files
+for (var i in audioFiles) {
+  preloadAudio(audioFiles[i]);
+}
+
 class App extends Component {
   state = {
     counter: countdownText,
@@ -117,23 +169,18 @@ class App extends Component {
             gameOn={this.state.gameOn}
             resetGame={this.resetGame}
             gameOver={this.state.gameOver}
+            secondsCountingStarted={this.state.secondsCountingStarted}
+            clockStop={this.clockStop}
           />
           <GameBoard
             time={this.state.time}
-            gameOn={this.state.gameOn}
-            secondsCountingStarted={this.state.secondsCountingStarted}
-            clockStop={this.clockStop}
             addTimerClasses={this.addTimerClasses}
-            resetGame={this.resetGame}
-            gameOver={this.state.gameOver}
           />
           <ResultsDisplay
             secondsCountingStarted={this.state.secondsCountingStarted}
             time={this.state.time}
             counter={this.state.counter}
             gameOn={this.state.gameOn}
-            resetGame={this.resetGame}
-            gameOver={this.state.gameOver}
           />
         </div>
       </div>

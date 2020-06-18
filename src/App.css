@@ -73,8 +73,8 @@ button {
 
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
-  background: linear-gradient(#333, yellow, yellow, yellow);
-  background: -webkit-linear-gradient(#333, yellow, yellow, yellow);
+  background: linear-gradient(#333, #d8d800, #d8d800, #d8d800);
+  background: -webkit-linear-gradient(#333, #d8d800, #d8d800, #d8d800);
 
   -webkit-background-clip: text;
   -moz-background-clip: text;
