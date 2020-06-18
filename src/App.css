@@ -63,6 +63,40 @@ button {
   color: rgba(255, 0, 0, 1);
 }
 
+.messageSuccess {
+  font-weight: bold;
+  font-size: 40px;
+
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  background: linear-gradient(#333, #333, yellow, yellow, yellow);
+  background: -webkit-linear-gradient(#333, #333, yellow, yellow, yellow);
+
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: rgba(255, 0, 0, 1);
+}
+
+.messageFailure {
+  font-weight: bold;
+  font-size: 40px;
+
+  -webkit-text-fill-color: transparent;
+  -moz-text-fill-color: transparent;
+
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: black;
+  background: linear-gradient(#333, #333, purple, purple, purple);
+  background: -webkit-linear-gradient(#333, #333, purple, purple, purple);
+
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  color: rgba(255, 0, 0, 1);
+}
+
 .gameCounter {
   margin-top: 20px;
   font-size: 40px;

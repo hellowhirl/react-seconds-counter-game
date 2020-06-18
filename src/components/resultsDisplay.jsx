@@ -15,14 +15,14 @@ const ResultsDisplay = ({
         className="row justify-content-center"
       >
         {!secondsCountingStarted && time >= 9.5 && time <= 10.5 && (
-          <h3>Excellent!</h3>
+          <div className="messageSuccess">Excellent!</div>
         )}
         {counter.length === 1 &&
           gameOn &&
           !secondsCountingStarted &&
-          time < 9.5 && <h3>Too Quick!!</h3>}
+          time < 9.5 && <div className="messageFailure">Too Quick</div>}
         {!secondsCountingStarted && time > 10.5 && (
-          <h3>T o o _ S l o w . . .</h3>
+          <div className="messageFailure">Too Slow</div>
         )}
       </div>
       <div className="row justify-content-center">
