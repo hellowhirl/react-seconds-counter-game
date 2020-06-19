@@ -39,7 +39,7 @@ function play(index) {
   audio.play();
   setTimeout(() => {
     audio.pause();
-  }, 10);
+  }, 1500);
 }
 
 function init() {
@@ -143,6 +143,11 @@ class App extends Component {
       : this.state.instructionText[1];
   };
 
+  setInstructionsClasses = () => {
+    let classes = "row justify-content-center ";
+    return (classes += !this.state.gameOn ? "blinking" : "");
+  };
+
   componentDidMount() {
     document.title = "Seconds Counter Game";
   }
@@ -154,9 +159,9 @@ class App extends Component {
         <div className="container">
           <h1 className="row justify-content-center">10 Seconds</h1>
           <h4 className="row justify-content-center">the game</h4>
-          <p className="row justify-content-center instructions ">
+          <div className={this.setInstructionsClasses()}>
             {this.setInstructions()}
-          </p>
+          </div>
           <MessageBox message={this.state.counter[0]} />
           <StartButton
             onStartButtonClick={this.startButtonClicked}

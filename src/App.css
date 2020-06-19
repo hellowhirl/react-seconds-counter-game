@@ -56,7 +56,7 @@ button {
     opacity: 1;
   }
 
-  45% {
+  40% {
     opacity: 0.9;
   }
 
@@ -64,7 +64,7 @@ button {
     opacity: 0;
   }
 
-  55% {
+  60% {
     opacity: 0.9;
   }
 
@@ -77,8 +77,8 @@ button {
   }
 }
 
-.instructions {
-  /* animation: fadeInfadeOut 4s infinite; */
+.blinking {
+  animation: fadeInfadeOut 4s infinite;
 }
 
 .gameMessage {
