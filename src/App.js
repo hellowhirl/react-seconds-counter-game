@@ -8,7 +8,6 @@ import readySound from "./assets/ready2count.m4a";
 
 // component interface: inputs and events
 const countdownText = ["", "Ready", "Ready", "3", "2", "1", "Go!"];
-const instructionText = [];
 const audio = new Audio(readySound);
 
 var audioFiles = [
@@ -38,7 +37,9 @@ function loadedAudio() {
 function play(index) {
   audio.src = audioFiles[index];
   audio.play();
-  audio.pause();
+  setTimeout(() => {
+    audio.pause();
+  }, 10);
 }
 
 function init() {
@@ -72,6 +73,7 @@ class App extends Component {
     time: 0,
     startTime: 0,
     updatedTime: 0,
+    instructionText: ["press Start", "press Stop after 10 seconds"],
   };
 
   startButtonClicked = () => {
@@ -135,6 +137,12 @@ class App extends Component {
     });
   };
 
+  setInstructions = () => {
+    return !this.state.gameOn
+      ? this.state.instructionText[0]
+      : this.state.instructionText[1];
+  };
+
   componentDidMount() {
     document.title = "Seconds Counter Game";
   }
@@ -145,23 +153,9 @@ class App extends Component {
         <header className="App-header"></header>
         <div className="container">
           <h1 className="row justify-content-center">10 Seconds</h1>
-          <h4 className="row instructions justify-content-center">the game</h4>
-          <p className="row instructions justify-content-center">
-            press
-            <span style={{ display: "contents", fontWeight: "bold" }}>
-              {" "}
-              Start
-            </span>
-            , then press{" "}
-            <span style={{ display: "contents", fontWeight: "bold" }}>
-              {" "}
-              Stop{" "}
-            </span>{" "}
-            after{" "}
-            <span style={{ display: "contents", fontWeight: "bold" }}>
-              {" "}
-              10 seconds{" "}
-            </span>
+          <h4 className="row justify-content-center">the game</h4>
+          <p className="row justify-content-center instructions ">
+            {this.setInstructions()}
           </p>
           <MessageBox message={this.state.counter[0]} />
           <StartButton

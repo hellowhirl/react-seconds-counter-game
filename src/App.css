@@ -47,6 +47,40 @@ button {
   }
 }
 
+@keyframes fadeInfadeOut {
+  0% {
+    opacity: 1;
+  }
+
+  30% {
+    opacity: 1;
+  }
+
+  45% {
+    opacity: 0.9;
+  }
+
+  50% {
+    opacity: 0;
+  }
+
+  55% {
+    opacity: 0.9;
+  }
+
+  70% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.instructions {
+  /* animation: fadeInfadeOut 4s infinite; */
+}
+
 .gameMessage {
   font-weight: bold;
   font-size: 60px;
