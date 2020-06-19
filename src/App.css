@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Permanent+Marker&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Bungee+Inline&display=swap");
-@import url("https://hellowhirl.github.io/react-seconds-counter-game/static/media/ready2count.05013ceb.m4a");
+/* @import url("https://hellowhirl.github.io/react-seconds-counter-game/static/media/ready2count.05013ceb.m4a"); */
+/* @import url("http://localhost:3000/static/media/ready2count.05013ceb.m4a"); */
 
 .App {
   margin-top: 20px;
@@ -16,7 +17,8 @@ h4 {
 }
 
 button {
-  width: 120px;
+  width: 140px;
+  height: 52px;
 }
 
 @keyframes fadeOut {

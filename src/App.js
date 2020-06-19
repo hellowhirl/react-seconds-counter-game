@@ -10,59 +10,7 @@ import readySound from "./assets/ready2count.m4a";
 const countdownText = ["", "Ready", "Ready", "3", "2", "1", "Go!"];
 const audio = new Audio(readySound);
 
-var audioFiles = [
-  "https://hellowhirl.github.io/react-seconds-counter-game/static/media/ready2count.05013ceb.m4a",
-];
-
-function preloadAudio(url) {
-  var audio = new Audio();
-  // once this file loads, it will call loadedAudio()
-  // the file will be kept by the browser as cache
-  audio.addEventListener("canplaythrough", loadedAudio, false);
-  audio.src = url;
-}
-
-var loaded = 0;
-function loadedAudio() {
-  // this will be called every time an audio file is loaded
-  // we keep track of the loaded files vs the requested files
-  loaded++;
-  if (loaded == audioFiles.length) {
-    // all have loaded
-    init();
-  }
-}
-
-// var player = document.getElementById("player");
-function play(index) {
-  audio.src = audioFiles[index];
-  audio.play();
-  setTimeout(() => {
-    audio.pause();
-  }, 1500);
-}
-
-function init() {
-  // do your stuff here, audio has been loaded
-  // for example, play all files one after the other
-  var i = 0;
-  // once the audio ends, play the next one
-  audio.onended = function () {
-    i++;
-    if (i >= audioFiles.length) {
-      // end
-      return;
-    }
-    play(i);
-  };
-  // play the first file
-  play(i);
-}
-
-// we start preloading all the audio files
-for (var i in audioFiles) {
-  preloadAudio(audioFiles[i]);
-}
+// if (navigator.userAgent.match("Macintosh")) console.log("yes");
 
 class App extends Component {
   state = {
@@ -73,7 +21,7 @@ class App extends Component {
     time: 0,
     startTime: 0,
     updatedTime: 0,
-    instructionText: ["press Start", "press Stop after 10 seconds"],
+    instructionText: ["press START", "press STOP after 10 seconds"],
   };
 
   startButtonClicked = () => {
@@ -159,9 +107,9 @@ class App extends Component {
         <div className="container">
           <h1 className="row justify-content-center">10 Seconds</h1>
           <h4 className="row justify-content-center">the game</h4>
-          <div className={this.setInstructionsClasses()}>
+          <h6 className={this.setInstructionsClasses()}>
             {this.setInstructions()}
-          </div>
+          </h6>
           <MessageBox message={this.state.counter[0]} />
           <StartButton
             onStartButtonClick={this.startButtonClicked}
