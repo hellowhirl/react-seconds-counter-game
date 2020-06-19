@@ -17,27 +17,18 @@ const MessageBox = ({
       )}
 
       {!secondsCountingStarted && time >= 9.5 && time <= 10.5 && (
-        <div
-          style={{ height: 100 }}
-          className="row justify-content-center messageSuccess"
-        >
-          Excellent!
+        <div style={{ height: 100 }} className="row justify-content-center">
+          <div className="messageSuccess">Excellent!</div>
         </div>
       )}
       {counter.length === 1 && gameOn && !secondsCountingStarted && time < 9.5 && (
-        <div
-          style={{ height: 100 }}
-          className="row justify-content-center messageFailure"
-        >
-          Too Quick
+        <div style={{ height: 100 }} className="row justify-content-center">
+          <div className="messageFailure">Too Quick</div>
         </div>
       )}
       {!secondsCountingStarted && time > 10.5 && (
-        <div
-          style={{ height: 100 }}
-          className="row justify-content-center messageFailure"
-        >
-          Too Slow
+        <div style={{ height: 100 }} className="row justify-content-center">
+          <div className="messageFailure">Too Slow</div>
         </div>
       )}
     </React.Fragment>
