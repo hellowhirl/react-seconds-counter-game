@@ -10,6 +10,12 @@ import readySound from "./assets/ready2count.m4a";
 const countdownText = ["", "Ready", "Ready", "3", "2", "1", "Go!"];
 const audio = new Audio(readySound);
 
+// const HtmlWebpackPlugin = require("html-webpack-plugin");
+
+// new HtmlWebpackPlugin({
+//   favicon: "./src/favicon.png",
+// });
+
 // if (navigator.userAgent.match("Macintosh")) console.log("yes");
 
 class App extends Component {
@@ -110,7 +116,14 @@ class App extends Component {
           <h6 className={this.setInstructionsClasses()}>
             {this.setInstructions()}
           </h6>
-          <MessageBox message={this.state.counter[0]} />
+          <MessageBox
+            message={this.state.counter[0]}
+            secondsCountingStarted={this.state.secondsCountingStarted}
+            time={this.state.time}
+            counter={this.state.counter}
+            gameOn={this.state.gameOn}
+            gameOver={this.state.gameOver}
+          />
           <StartButton
             onStartButtonClick={this.startButtonClicked}
             gameOn={this.state.gameOn}
@@ -123,12 +136,12 @@ class App extends Component {
             time={this.state.time}
             addTimerClasses={this.addTimerClasses}
           />
-          <ResultsDisplay
+          {/* <ResultsDisplay
             secondsCountingStarted={this.state.secondsCountingStarted}
             time={this.state.time}
             counter={this.state.counter}
             gameOn={this.state.gameOn}
-          />
+          /> */}
         </div>
       </div>
     );
