@@ -27,7 +27,11 @@ class App extends Component {
     time: 0,
     startTime: 0,
     updatedTime: 0,
-    instructionText: ["press START", "press STOP after 10 seconds"],
+    instructionText: [
+      "press START",
+      "press STOP after 10 seconds",
+      "game over",
+    ],
   };
 
   startButtonClicked = () => {
@@ -92,9 +96,11 @@ class App extends Component {
   };
 
   setInstructions = () => {
-    return !this.state.gameOn
-      ? this.state.instructionText[0]
-      : this.state.instructionText[1];
+    if (!this.state.gameOn && !this.state.gameOver)
+      return this.state.instructionText[0];
+    if (this.state.gameOn && !this.state.gameOver)
+      return this.state.instructionText[1];
+    if (this.state.gameOver) return this.state.instructionText[2];
   };
 
   setInstructionsClasses = () => {
@@ -124,6 +130,10 @@ class App extends Component {
             gameOn={this.state.gameOn}
             gameOver={this.state.gameOver}
           />
+          <GameBoard
+            time={this.state.time}
+            addTimerClasses={this.addTimerClasses}
+          />
           <StartButton
             onStartButtonClick={this.startButtonClicked}
             gameOn={this.state.gameOn}
@@ -131,10 +141,6 @@ class App extends Component {
             gameOver={this.state.gameOver}
             secondsCountingStarted={this.state.secondsCountingStarted}
             clockStop={this.clockStop}
-          />
-          <GameBoard
-            time={this.state.time}
-            addTimerClasses={this.addTimerClasses}
           />
           {/* <ResultsDisplay
             secondsCountingStarted={this.state.secondsCountingStarted}
