@@ -3,20 +3,15 @@ import MessageBox from "./components/messageBox";
 import StartButton from "./components/startButton";
 import "./App.css";
 import GameBoard from "./components/gameBoard";
-import ResultsDisplay from "./components/resultsDisplay";
-import readySound from "./assets/ready2count.m4a";
+import readySound from "./assets/ready2count_optimal.m4a";
+import wow_incredible from "./assets/wow_incredible.m4a";
+import failure_sound from "./assets/failure_sound.m4a";
 
 // component interface: inputs and events
 const countdownText = ["", "Ready", "Ready", "3", "2", "1", "Go!"];
-const audio = new Audio(readySound);
-
-// const HtmlWebpackPlugin = require("html-webpack-plugin");
-
-// new HtmlWebpackPlugin({
-//   favicon: "./src/favicon.png",
-// });
-
-// if (navigator.userAgent.match("Macintosh")) console.log("yes");
+const audioReady = new Audio(readySound);
+const audioIncredible = new Audio(wow_incredible);
+const audioFailure = new Audio(failure_sound);
 
 class App extends Component {
   state = {
@@ -35,7 +30,7 @@ class App extends Component {
   };
 
   startButtonClicked = () => {
-    audio.play();
+    audioReady.play();
     this.setState({ gameOn: true });
     this.handleCountdownText();
   };
@@ -72,6 +67,8 @@ class App extends Component {
   clockStop = () => {
     clearInterval(this.intervalID);
     this.setState({ secondsCountingStarted: false, gameOver: true });
+    if (this.state.time > 9.5 && this.state.time < 10.5) audioIncredible.play();
+    else audioFailure.play();
   };
 
   addTimerClasses = () => {
@@ -142,12 +139,6 @@ class App extends Component {
             secondsCountingStarted={this.state.secondsCountingStarted}
             clockStop={this.clockStop}
           />
-          {/* <ResultsDisplay
-            secondsCountingStarted={this.state.secondsCountingStarted}
-            time={this.state.time}
-            counter={this.state.counter}
-            gameOn={this.state.gameOn}
-          /> */}
         </div>
       </div>
     );
