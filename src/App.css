@@ -135,9 +135,18 @@ button {
 }
 
 .gameCounter {
-  margin-bottom: 20px;
-  font-size: 40px;
+  /* margin-bottom: 20px; */
+  font-size: 44px;
   opacity: 0;
+}
+
+.difference {
+  font-size: 16px;
+  font-weight: bold;
+  font-style: italic;
+  opacity: 0;
+  color: #777;
+  line-height: 1.1;
 }
 
 .unhidden {

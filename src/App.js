@@ -80,6 +80,12 @@ class App extends Component {
       return base + "fade-out";
   };
 
+  addDifferenceClasses = () => {
+    let base = "row justify-content-center difference ";
+    if (this.state.gameOver && this.state.gameOn) return base + "unhidden";
+    else return base;
+  };
+
   resetGame = () => {
     this.setState({
       counter: countdownText,
@@ -106,6 +112,7 @@ class App extends Component {
   };
 
   componentDidMount() {
+    console.log("state", this.state);
     document.title = "Seconds Counter Game";
   }
 
@@ -130,6 +137,8 @@ class App extends Component {
           <GameBoard
             time={this.state.time}
             addTimerClasses={this.addTimerClasses}
+            addDifferenceClasses={this.addDifferenceClasses}
+            gameOver={this.state.gameOver}
           />
           <StartButton
             onStartButtonClick={this.startButtonClicked}
