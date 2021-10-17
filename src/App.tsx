@@ -14,6 +14,8 @@ const audioIncredible = new Audio(wow_incredible);
 const audioFailure = new Audio(failure_sound);
 
 class App extends Component {
+  intervalID!: number;
+
   state = {
     counter: countdownText,
     gameOn: false,
@@ -61,7 +63,7 @@ class App extends Component {
 
   clockStart = () => {
     this.setState({ startTime: new Date().getTime() });
-    this.intervalID = setInterval(() => this.tick(), 10);
+    this.intervalID = window.setInterval(() => this.tick(), 10);
   };
 
   clockStop = () => {
@@ -112,7 +114,6 @@ class App extends Component {
   };
 
   componentDidMount() {
-    console.log("state", this.state);
     document.title = "Seconds Counter Game";
   }
 

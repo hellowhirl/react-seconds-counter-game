@@ -12,7 +12,9 @@ function GameBoard(props) {
       <div>
         <div className={props.addTimerClasses()}>{props.time}</div>
         <div className={props.addDifferenceClasses()}>
-          <bold>{calculateDifference(props.time)}</bold>
+          <span style={{ fontWeight: "bold" }}>
+            {calculateDifference(props.time)}
+          </span>
         </div>
         <p className={props.addDifferenceClasses()}>seconds away</p>
       </div>
