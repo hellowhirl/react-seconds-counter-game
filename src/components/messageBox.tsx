@@ -1,6 +1,15 @@
 import React from "react";
 
-const MessageBox = ({
+interface MessageBoxProps {
+  message: string;
+  secondsCountingStarted: boolean;
+  time: number;
+  counter: string[];
+  gameOn: boolean;
+  gameOver: boolean;
+}
+
+const MessageBox: React.FunctionComponent<MessageBoxProps> = ({
   message,
   secondsCountingStarted,
   time,

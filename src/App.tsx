@@ -17,7 +17,7 @@ class App extends Component {
   intervalID!: number;
 
   state = {
-    counter: countdownText,
+    counterMessage: countdownText,
     gameOn: false,
     gameOver: false,
     secondsCountingStarted: false,
@@ -38,7 +38,7 @@ class App extends Component {
   };
 
   handleCountdownText = () => {
-    const counter = [...this.state.counter];
+    const counter = [...this.state.counterMessage];
 
     if (counter.length > 1) {
       setTimeout(() => {
@@ -128,10 +128,10 @@ class App extends Component {
             {this.setInstructions()}
           </h6>
           <MessageBox
-            message={this.state.counter[0]}
+            message={this.state.counterMessage[0]}
             secondsCountingStarted={this.state.secondsCountingStarted}
             time={this.state.time}
-            counter={this.state.counter}
+            counter={this.state.counterMessage}
             gameOn={this.state.gameOn}
             gameOver={this.state.gameOver}
           />
